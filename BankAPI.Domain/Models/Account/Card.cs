@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BankAPI.Domain.Models.Account
 {
-    public  class Cards
+    public  class Card
     {
-        private Cards() { }
+        private Card() { }
 
-        public Cards (string name, Flag flag)
+        public Card (string name, Flag flag)
         {
             Name = name;
             Flag = flag;

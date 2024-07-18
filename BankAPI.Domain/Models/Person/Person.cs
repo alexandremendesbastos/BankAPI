@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Reflection.Metadata;
 
-namespace BankAPI.Domain.Models.Account.Person
+namespace BankAPI.Domain.Models.Person
 {
 
     public class Person
@@ -42,20 +42,16 @@ namespace BankAPI.Domain.Models.Account.Person
         #region Properties
         public string Name { get; private set; }
         public string SocialName { get; private set; }
-        public string DisplayName { get; private set; }
         public string CPFNumber { get; private set; }
         public SchoolLevel SchoolLevel { get; private set; }
         public CivilState CivilState { get; private set; }
         public string Gender { get; private set; }
-        public DateTime? BirthDate { get; private set; }
+        public DateTime BirthDate { get; private set; }
         public string BirthCity { get; private set; }
         public string BirthState { get; private set; }
         public string BirthCountry { get; private set; }
-        public string Parent1Name { get; private set; }
-        public string Parent1Gender { get; private set; }
-        public string Parent2Name { get; private set; }
-        public string Parent2Gender { get; private set; }
-        public string PictureUrl { get; private set; }
+        public string MotherName { get; private set; }
+        public string FatherName { get; private set; }
         public IReadOnlyCollection<Address> Address => _address;
         public PersonAttributes Attributes { get; private set; }
         public IReadOnlyCollection<Attachment> Attachments => _attachments;

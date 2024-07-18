@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAPI.Domain.Models.Account.Person.Common
+namespace BankAPI.Domain.Models.Person.Common
 {
     public class Storage
     {

@@ -1,6 +1,6 @@
 ﻿using BankAPI.Domain.Core.Models;
 
-namespace BankAPI.Domain.Models.Account.Person
+namespace BankAPI.Domain.Models.Person
 {
     public class Attachment : Entity<Guid>
     {
@@ -20,7 +20,7 @@ namespace BankAPI.Domain.Models.Account.Person
             Description = description;
             ScannedFiles = new List<AttachmentStorage>();
             if (scannedFiles != null)
-                scannedFiles.ForEach(f => this.ScannedFiles.Add(new AttachmentStorage(Id, f)));
+                scannedFiles.ForEach(f => ScannedFiles.Add(new AttachmentStorage(Id, f)));
         }
     }
 }

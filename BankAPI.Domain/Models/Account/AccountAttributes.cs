@@ -10,15 +10,13 @@ namespace BankAPI.Domain.Models.Account
     public class AccountAttributes : ValueObject
     {
         private AccountAttributes() { }
-        public AccountAttributes(string accountNumber, string cvv, bool isDigital, bool isActive)
+        public AccountAttributes(string accountNumber, bool isDigital, bool isActive)
         {
             AccountNumber = accountNumber;
-            CVV = cvv;
             IsDigital = isDigital;
             IsActive = isActive;
         }
         public string AccountNumber { get; private set; }
-        public string CVV { get; private set; }
         public bool IsDigital { get; private set; }
         public bool IsActive { get; private set; }
         public Agency Agency { get; private set; }

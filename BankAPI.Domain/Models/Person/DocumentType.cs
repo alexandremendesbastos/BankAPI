@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAPI.Domain.Models.Account.Person
+namespace BankAPI.Domain.Models.Person
 {
     public class DocumentType : Enumeration
     {
@@ -17,8 +17,8 @@ namespace BankAPI.Domain.Models.Account.Person
 
         public DocumentType(int id, string name, string mask, bool expires) : base(id, name)
         {
-            this.Mask = mask;
-            this.Expires = expires;
+            Mask = mask;
+            Expires = expires;
         }
 
         public string Mask { get; set; }

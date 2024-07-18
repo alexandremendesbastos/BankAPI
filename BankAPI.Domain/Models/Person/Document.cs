@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAPI.Domain.Models.Account.Person
+namespace BankAPI.Domain.Models.Person
 {
     public class Document : Entity<Guid>
     {
@@ -20,7 +20,7 @@ namespace BankAPI.Domain.Models.Account.Person
             AttributesInfo = attributes;
             ScannedFiles = new List<DocumentStorage>();
             if (scannedFiles != null)
-                scannedFiles.ForEach(f => this.ScannedFiles.Add(new DocumentStorage(Id, f)));
+                scannedFiles.ForEach(f => ScannedFiles.Add(new DocumentStorage(Id, f)));
         }
 
         public DocumentType DocumentType { get; private set; }

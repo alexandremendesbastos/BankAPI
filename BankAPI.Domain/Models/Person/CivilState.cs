@@ -1,4 +1,4 @@
-﻿namespace BankAPI.Domain.Models.Account.Person
+﻿namespace BankAPI.Domain.Models.Person
 {
     public enum CivilState
     {

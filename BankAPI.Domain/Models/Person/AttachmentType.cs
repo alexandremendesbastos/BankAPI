@@ -1,4 +1,4 @@
-﻿namespace BankAPI.Domain.Models.Account.Person
+﻿namespace BankAPI.Domain.Models.Person
 {
     public enum AttachmentType
     {
@@ -12,7 +12,6 @@
         BirthCertificate = 8,
         BirthDependentCertificate = 9,
         DependentStudentRegistration = 10,
-        Curriculum = 11,
         Transcript = 12,
         Others = 13
     }

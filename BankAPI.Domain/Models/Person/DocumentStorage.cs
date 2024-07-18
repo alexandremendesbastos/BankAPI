@@ -1,12 +1,12 @@
 ﻿using BankAPI.Domain.Core.Models;
-using BankAPI.Domain.Models.Account.Person.Common;
+using BankAPI.Domain.Models.Person.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankAPI.Domain.Models.Account.Person
+namespace BankAPI.Domain.Models.Person
 {
     /// <summary>
     /// This class only exists because the EF core does not support many-to-many relationship with shadow table.
