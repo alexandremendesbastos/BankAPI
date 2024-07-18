@@ -29,12 +29,13 @@ namespace BankAPI.Domain.Models.Transaction
         public string ReferenceNumber { get; private set; }
         public DateTime? ClearingDate { get; private set; }
         public bool IsReversal { get; }
-        public Deposit(decimal amount, string description, Guid accountId, string source, string bankBranch, string referenceNumber = null, decimal? transactionFee = null)
+        public Deposit(decimal amount, string description, Guid accountId, string source, string bankBranch, string referenceNumber = null, decimal? transactionFee = null, bool isReversal = false)
             : base(amount, description, referenceNumber, transactionFee)
         {
             AccountId = accountId;
             Source = source;
             BankBranch = bankBranch;
+            IsReversal = isReversal;
         }
         public void UpdateStatus(DepositStatus newStatus, DateTime? clearingDate = null)
         {
@@ -52,16 +53,20 @@ namespace BankAPI.Domain.Models.Transaction
         }
         private bool IsDepositValid()
         {
-            return Status == DepositStatus.Pending && Amount > 0;
+            return (Status == DepositStatus.Pending && Amount > 0 && !IsReversal) ||
+                   (Status == DepositStatus.Pending && Amount < 0 && IsReversal);
         }
         private bool IsValidStatusTransition(DepositStatus newStatus)
         {
-            if (Status == DepositStatus.Pending)
-                return newStatus == DepositStatus.Completed || newStatus == DepositStatus.Failed || newStatus == DepositStatus.Cancelled;
-            if (Status == DepositStatus.Completed)
-                return newStatus == DepositStatus.Failed; 
-
-            return false; 
+            switch (Status)
+            {
+                case DepositStatus.Pending:
+                    return newStatus == DepositStatus.Completed || newStatus == DepositStatus.Failed || newStatus == DepositStatus.Cancelled;
+                case DepositStatus.Completed:
+                    return newStatus == DepositStatus.Failed; // Permite reversões
+                default:
+                    return false; // Nenhuma outra transição é permitida
+            }
         }
 
     }
